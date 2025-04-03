@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -x ts-node src/routes.ts",
-    "start": "ts-node src/routes.ts"
+    "dev": "nodemon -x ts-node src/4-models/models-index.ts",
+    "start": "ts-node src/db-index.ts"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +17,7 @@
     "typescript": "^5.8.2"
   },
   "dependencies": {
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "mongoose": "^8.13.0"
   }
 }
