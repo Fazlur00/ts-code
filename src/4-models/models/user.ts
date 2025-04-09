@@ -9,9 +9,9 @@
 // backward compitability 
 
 
-const UserSchema = require('../schema/user')
+// const UserSchema = require('../schema/user')
 
 
-const userModels = new UserSchema();
+// const userModels = new UserSchema();
 
-export default userModels;
+// export default userModels;

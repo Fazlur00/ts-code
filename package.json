@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -x ts-node src/4-models/models-index.ts",
+    "dev": "nodemon -x ts-node src/5-routing/routing-index.ts",
     "start": "ts-node src/db-index.ts"
   },
   "keywords": [],
@@ -11,6 +11,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@types/express": "^5.0.1",
     "@types/node": "^22.13.13",
     "nodemon": "^3.1.9",
     "ts-node": "^10.9.2",
