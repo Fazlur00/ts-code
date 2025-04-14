@@ -7,16 +7,50 @@ export const getUser = async (req: Request, res: Response)=>{
 }
 
 export const addUser = async (req: Request, res: Response)=>{
-   const dataGotten = await req.body
-   console.log(dataGotten)
-   res.send("add users")
+    const users = new UserModels(req.body)
+    try{
+        await users.save()
+        res.status(200).json({
+            error: false,
+            message: "User added successfully",
+        })
+    } catch(err : any){
+        res.status(400).json({
+            error: true,
+            message: err.message,
+        })
+    }
 }
 
-export function updateUser(req: Request, res: Response) {
-    res.send('update User')
+export const updateUser = async (req: Request, res: Response) => {
+    const {id, data} = await req.body
+    try{
+        const updatedUser = await UserModels.findByIdAndUpdate(id, data, {new: true})
+        if (!updatedUser) {
+            res.status(404).json({ error: true, message: "User not found" });
+        }
+        res.status(200).json(updatedUser)
+    } catch(err : any){
+        res.status(400).json({
+            error: true,
+            message: err.message,
+        })
+    }
 }
 
 
-export function deleteUser(req: Request, res: Response) {
-    res.send('delete User')
+export const deleteUser = async (req: Request, res: Response) => {
+    const {id} = await req.body
+    try{
+        const deletedUser = await UserModels.findByIdAndDelete(id)
+        if (!deletedUser) {
+            res.status(404).json({ error: true, message: "User not found" });
+        }
+        res.status(200).json(deletedUser)
+    } catch(err : any){
+        res.status(400).json({
+            error: true,
+            message: err.message,
+        })
+    }
 }

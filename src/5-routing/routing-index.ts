@@ -4,7 +4,7 @@ const fs = require('fs')
 import userRoutes from './routes/userRoutes'
 
 const app = express()
-const port = 3001
+const port = 3005
 app.use(express.json())
 app.use('/api', userRoutes)
 
