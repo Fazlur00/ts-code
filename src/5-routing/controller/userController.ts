@@ -1,5 +1,6 @@
 import {Request, Response} from 'express';
 import UserModels from '../models/userModels';
+import bcrypt from 'bcryptjs';
 
 export const getUser = async (req: Request, res: Response)=>{
     const users = await UserModels.find({})
@@ -8,6 +9,10 @@ export const getUser = async (req: Request, res: Response)=>{
 
 export const addUser = async (req: Request, res: Response)=>{
     const users = new UserModels(req.body)
+    const originalPassword = req.body?.password
+    const salt = bcrypt.genSaltSync(10)
+    const hashedPassword = bcrypt.hashSync(originalPassword, salt)  
+    users.password = hashedPassword
     try{
         await users.save()
         res.status(200).json({
