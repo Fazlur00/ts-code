@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -x ts-node src/5-routing/routing-index.ts",
+    "dev": "nodemon -x ts-node src/static-example/index.ts",
     "start": "ts-node src/db-index.ts"
   },
   "keywords": [],
